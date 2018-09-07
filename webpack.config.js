@@ -34,9 +34,6 @@ module.exports = {
 
   plugins: [
     new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
-      Popper: 'popper.js',
       React: 'react',
       ReactDOM: 'react-dom'
     }),
