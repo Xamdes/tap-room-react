@@ -45,7 +45,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template:'template.ejs',
       appMountId: 'react-app-root',
-      title: 'React Help Queue',
+      title: 'The Tap',
       filename: resolve(__dirname, 'build', 'index.html'),
     }),
   ],
@@ -84,4 +84,3 @@ module.exports = {
     ],
   }
 };
-
