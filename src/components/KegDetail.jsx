@@ -7,7 +7,15 @@ function KegDetail(props){
   return (
     <Main>
       <Keg>
-        <Name>{props.name}</Name>
+        <Name>{props.name}
+          <ul>
+            <Details>Brewer: {props.brewer}</Details>
+            <Details>Desc: {props.description}</Details>
+            <Details>ABV: {props.abv}</Details>
+            <Details>Price: ${props.price}</Details>
+            <Details>In-Stock: {props.remaining} pints</Details>
+          </ul>
+        </Name>
       </Keg>
     </Main>
   );
@@ -19,14 +27,18 @@ const Main = styled.div`
 
 `;
 
-const Keg = styled.div`
+const Keg = styled.ul`
 text-align: left;
 display: flex;
 flex-direction: column;
 justify-content: center;
 `;
 
-const Name = styled.h3`
+const Name = styled.li`
+color: white;
+`;
+
+const Details = styled.li`
 color: white;
 `;
 

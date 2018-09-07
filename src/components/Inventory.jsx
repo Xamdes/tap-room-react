@@ -19,7 +19,7 @@ function Inventory(){
           description={keg.description}
           abv={keg.abv}
           price={keg.price}
-          remaining={keg.issue}
+          remaining={keg.remaining}
           key={index}/>
       )}
     </Main>
