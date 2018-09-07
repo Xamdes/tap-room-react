@@ -27,7 +27,7 @@ class KegDetail extends React.Component{
               <Details>ABV: {this.state.abv}</Details>
               <Details>Price: ${this.state.price}</Details>
               <Details>In-Stock: {this.state.remaining} pints</Details>
-              <Button className="btn btn-primary" onClick={() => this.sellPints()}>Sell</Button>
+              <Button className="btn btn-dark btn-sm" onClick={() => this.sellPints()}>Sell a Pint</Button>
             </ul>
           </Name>
         </Keg>
@@ -37,7 +37,6 @@ class KegDetail extends React.Component{
 
   sellPints()
   {
-    console.log(this.state.remaining);
     let tempRemains = parseInt(this.state.remaining);
     tempRemains--;
     this.setState({
@@ -60,6 +59,8 @@ justify-content: left;
 align-items: start;
 background-color: lightgrey;
 color: black;
+padding: 16px;
+padding-left: 32px;
 `;
 
 const Name = styled.li`
