@@ -6,11 +6,13 @@
 
 ## Notes
 
-Trying to figure out how to update the diplay of a variable after you change it.
+Figure out how to update the display of a variable when you change it. Although
 
 ## Description
 
 The Main difference I've noticed so far between react and angular is that with react there are less files to go through when writing code as react has the js, html and css combined in the jsx file.
+
+It feels weird how to do state changes in react vs angular. Having to call setState() instead of just changing a variable
 
 ## Install
 
