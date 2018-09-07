@@ -31,15 +31,16 @@ const Keg = styled.ul`
 text-align: left;
 display: flex;
 flex-direction: column;
-justify-content: center;
+justify-content: left;
+align-items: start;
+background-color: lightgrey;
+color: black;
 `;
 
 const Name = styled.li`
-color: white;
 `;
 
 const Details = styled.li`
-color: white;
 `;
 
 

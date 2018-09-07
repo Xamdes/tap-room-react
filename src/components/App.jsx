@@ -8,14 +8,16 @@ import KegDetail from './KegDetail';
 
 function App(){
   return (
-    <Main className="container">
-      <HeadOne className="jumbotron">Welcome to The Tap</HeadOne>
-      <Header/>
-      <Switch>
-        <Route exact path='/' component={Inventory} />
-        <Route exact path='/keg' component={KegDetail} />
-        <Route component={Error404} />
-      </Switch>
+    <Main>
+      <InnerMain className="container">
+        <HeadOne className="jumbotron">Welcome to The Tap</HeadOne>
+        <Header/>
+        <Switch>
+          <Route exact path='/' component={Inventory} />
+          <Route exact path='/keg' component={KegDetail} />
+          <Route component={Error404} />
+        </Switch>
+      </InnerMain>
     </Main>
   );
 }
@@ -23,6 +25,12 @@ function App(){
 export default App;
 
 const Main = styled.div`
+background-color: #00665E;
+font-family: sans-serif;
+color: white;
+`;
+
+const InnerMain = styled.div`
 background-color: black;
 font-family: sans-serif;
 padding-top: 50px;
