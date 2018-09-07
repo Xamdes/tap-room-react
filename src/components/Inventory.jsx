@@ -40,7 +40,7 @@ color: white;
 text-align: center;
 `;
 
-const state = {
+let state = {
   masterKegList: [
     {
       name: 'Ruby Zozzle',

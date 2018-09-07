@@ -4,6 +4,14 @@
 
   * Steven Colburn
 
+## Notes
+
+Trying to figure out how to update the diplay of a variable after you change it.
+
+## Description
+
+The Main difference I've noticed so far between react and angular is that with react there are less files to go through when writing code as react has the js, html and css combined in the jsx file.
+
 ## Install
 
 ```

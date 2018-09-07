@@ -5,7 +5,8 @@ import styled from 'styled-components';
 function Error404(){
   return (
     <Main>
-      <h1>Error404 Component Created Successfully</h1>
+      <h1>Error404</h1>
+      <p>Invalid URL</p>
     </Main>
   );
 }
@@ -24,5 +25,3 @@ color: white;
 * import Error404 from './Error404';
 * <Error404/>
 */
-
-
