@@ -2,12 +2,12 @@
 
 ## Author(s)
 
-  * Jane Doe
+  * Steven Colburn
 
 ## Install
 
 ```
-  git clone https://github.com/[github-username]/tap-room-react.git
+  git clone https://github.com/xamdes/tap-room-react.git
   cd tap-room-react
   npm install
 ```
@@ -42,6 +42,3 @@
 **React Project Created using @xamdes/project-generator**
 **Used Command: npx -p @xamdes/project-generator -c 'create-react-[mac/win] tap-room-react'**
 **Latest Project Generator Notes can be found at https://www.npmjs.com/package/@xamdes/project-generator**
-
-
-
