@@ -37,6 +37,14 @@
 
 ## Specifications
 
+  * Routes
+    * Inventory - /
+    * Error404 - Invalid Routes
+    * KegWarning - /warning
+    * KegDetail - /[kegname]
+    * KegEdit - /[kegname]/edit
+    * KegSell - sell
+
 ## Diagram
 
   **Diagram made using https://www.draw.io/**
