@@ -8,6 +8,7 @@
     "fresh": "npm install; webpack",
     "gen": "bash ./bin/generate-component.sh",
     "commit": "bash ./bin/commit.sh",
+    "push": "git push origin master",
     "git-config": "bash ./bin/git-config.sh",
     "webpack": "webpack",
     "webpack-dev-server": "webpack-dev-server",

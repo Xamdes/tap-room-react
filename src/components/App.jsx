@@ -8,7 +8,7 @@ import KegDetail from './KegDetail';
 
 function App(){
   return (
-    <Main className="container-fluid">
+    <Main className="container">
       <HeadOne className="jumbotron">Welcome to The Tap</HeadOne>
       <Header/>
       <Switch>

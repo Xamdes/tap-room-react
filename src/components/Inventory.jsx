@@ -11,7 +11,7 @@ import KegDetail from './KegDetail';
 function Inventory(){
   return (
     <Main>
-      <h1 clasName="container">Inventory</h1>
+      <Title clasName="container">Inventory</Title>
       {state.masterKegList.map((keg, index) =>
         <KegDetail
           name={keg.name}
@@ -33,6 +33,11 @@ background-color: black;
 font-family: sans-serif;
 padding-top: 50px;
 color: white;
+`;
+
+const Title = styled.h1`
+color: white;
+text-align: center;
 `;
 
 const state = {
