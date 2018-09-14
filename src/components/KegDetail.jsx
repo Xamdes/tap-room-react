@@ -27,6 +27,7 @@ class KegDetail extends React.Component{
               <Details>ABV: {this.state.abv}</Details>
               <Details>Price: ${this.state.price}</Details>
               <Details>In-Stock: {this.state.remaining} pints</Details>
+              <Details>ID: {this.state.id} pints</Details>
               <Button className="btn btn-dark btn-sm" onClick={() => this.sellPints()}>Sell a Pint</Button>
             </ul>
           </Name>
@@ -35,15 +36,18 @@ class KegDetail extends React.Component{
     );
   }
 
-  sellPints()
-  {
-    let tempRemains = parseInt(this.state.remaining);
-    tempRemains--;
-    this.setState({
-      remaining: tempRemains.toString()
-    });
-  }
+
 }
+
+KegDetail.propTypes = {
+  name: PropTypes.string,
+  brewer: PropTypes.string,
+  description: PropTypes.string,
+  abv: PropTypes.string,
+  price: PropTypes.string,
+  remaining: PropTypes.string,
+  id: PropTypes.string
+};
 
 export default KegDetail;
 
@@ -72,12 +76,3 @@ const Details = styled.li`
 const Button = styled.button`
 
 `;
-
-KegDetail.propTypes = {
-  name: PropTypes.string,
-  brewer: PropTypes.string,
-  description: PropTypes.string,
-  abv: PropTypes.string,
-  price: PropTypes.string,
-  remaining: PropTypes.string,
-};

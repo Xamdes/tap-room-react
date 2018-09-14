@@ -21,6 +21,7 @@ function Inventory(props){
           abv={keg.abv}
           price={keg.price}
           remaining={keg.remaining}
+          id={index}
           key={index}/>
       )}
     </Main>
