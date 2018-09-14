@@ -9,7 +9,6 @@ import { Switch, Route } from 'react-router-dom';
 import Header from './Header';
 import Inventory from './Inventory';
 import Error404 from './Error404';
-import KegDetail from './KegDetail';
 import NewKegForm from './NewKegForm';
 
 class App extends React.Component
@@ -21,6 +20,7 @@ class App extends React.Component
     };
     this.handleSellPints = this.handleSellPints.bind(this);
     this.handleRestockKeg = this.handleRestockKeg.bind(this);
+    this.handleKegPush = this.handleKegPush.bind(this);
   }
   render(){
     return (
@@ -34,7 +34,9 @@ class App extends React.Component
               onClickSellPints={this.handleSellPints}
               onClickRestockKeg={this.handleRestockKeg}
             />} />
-            <Route exact path='/keg' render={()=><KegDetail onClickSellPints={this.handleSellPints} />} />
+            <Route exact path='/newkeg' render={()=><NewKegForm
+              onClickPushKeg={this.handleKegPush}
+            />} />
             <Route component={Error404} />
           </Switch>
         </InnerMain>
@@ -42,9 +44,13 @@ class App extends React.Component
     );
   }
 
-  handleKegPush()
+  handleKegPush(newKeg)
   {
-
+    let newMasterKegList = this.state.masterKegList.slice();
+    newMasterKegList.push(newKeg);
+    this.setState({
+      masterKegList: newMasterKegList
+    });
   }
 
   handleSellPints(id,amount=1)
