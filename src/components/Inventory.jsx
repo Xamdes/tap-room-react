@@ -9,25 +9,29 @@ import KegDetail from './KegDetail';
 // import { Link, Switch, Route } from 'react-router-dom';
 
 function Inventory(props){
-  render() {
-    return (
-      <Main>
-        <Title clasName="container">Keg Inventory</Title>
-        {props.kegList.map((keg, index) =>
-          <KegDetail
-            name={keg.name}
-            brewer={keg.brewer}
-            description={keg.description}
-            abv={keg.abv}
-            price={keg.price}
-            remaining={keg.remaining}
-            key={index}/>
-        )}
-      </Main>
-    );
-  }
+
+  return (
+    <Main>
+      <Title clasName="container">Keg Inventory</Title>
+      {props.kegList.map((keg, index) =>
+        <KegDetail
+          name={keg.name}
+          brewer={keg.brewer}
+          description={keg.description}
+          abv={keg.abv}
+          price={keg.price}
+          remaining={keg.remaining}
+          key={index}/>
+      )}
+    </Main>
+  );
+
 
 }
+
+Inventory.propTypes = {
+kegList: PropTypes.array,
+};
 
 export default Inventory;
 

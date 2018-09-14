@@ -18,21 +18,22 @@ class App extends React.Component
     this.state = {
       masterKegList: startingKegList
     };
-    render(){
-      return (
-        <Main>
-          <InnerMain className="container">
-            <HeadOne className="jumbotron">Welcome to The Tap</HeadOne>
-            <Header/>
-            <Switch>
-              <Route exact path='/' render={()=><Inventory kegList={this.state.masterKegList} />} />
-              <Route exact path='/keg' component={KegDetail} />
-              <Route component={Error404} />
-            </Switch>
-          </InnerMain>
-        </Main>
-      );
-    }
+  }
+  render(){
+    return (
+      <Main>
+        <InnerMain className="container">
+          <HeadOne className="jumbotron">Welcome to The Tap</HeadOne>
+          <Header/>
+          <Switch>
+            <Route exact path='/' render={()=><Inventory kegList={this.state.masterKegList} />} />
+            <Route exact path='/keg' component={KegDetail} />
+            <Route component={Error404} />
+          </Switch>
+        </InnerMain>
+      </Main>
+    );
+  }
 
 }
 
@@ -57,7 +58,7 @@ text-align: center;
 `;
 
 
-let startingKegList: [
+let startingKegList = [
   {
     name: 'Ruby Zozzle',
     brewer: 'Hi-Wheel',
