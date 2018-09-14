@@ -4,7 +4,6 @@
 * import KegDetail from './KegDetail';
 * <KegDetail/>
 */
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 // import { Link, Switch, Route } from 'react-router-dom';
 
@@ -20,7 +19,6 @@ function KegDetail(props){
             <Details>ABV: {props.abv}</Details>
             <Details>Price: ${props.price}</Details>
             <Details>In-Stock: {props.remaining} pints</Details>
-            <Details>ID: {props.id} pints</Details>
             <Button className="btn btn-dark btn-sm" onClick={handleClickSellPints}>Sell a Pint</Button>
           </ul>
         </Name>
@@ -66,7 +64,7 @@ padding-left: 32px;
 const Name = styled.li`
 `;
 
-const Details = styled.li`
+let Details = styled.li`
 `;
 
 const Button = styled.button`

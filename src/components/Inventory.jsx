@@ -6,6 +6,7 @@
 */
 import styled from 'styled-components';
 import KegDetail from './KegDetail';
+import KegWarning from './KegWarning';
 // import { Link, Switch, Route } from 'react-router-dom';
 
 function Inventory(props){
@@ -14,19 +15,37 @@ function Inventory(props){
     <Main>
       <Title clasName="container">Keg Inventory</Title>
       {props.kegList.map((keg, index) =>
-        <KegDetail
-          name={keg.name}
-          brewer={keg.brewer}
-          description={keg.description}
-          abv={keg.abv}
-          price={keg.price}
-          remaining={keg.remaining}
-          id={index}
-          onClickSellPints={props.onClickSellPints}
-          key={index}/>
+        checkForLowStock(keg,index)
       )}
     </Main>
   );
+
+  function checkForLowStock(keg,index)
+  {
+    if(parseInt(keg.remaining) <= 10)
+    {
+      return <KegWarning
+        name={keg.name}
+        brewer={keg.brewer}
+        description={keg.description}
+        abv={keg.abv}
+        price={keg.price}
+        remaining={keg.remaining}
+        id={index}
+        onClickSellPints={props.onClickSellPints}
+        key={index}/>;
+    }
+    return <KegDetail
+      name={keg.name}
+      brewer={keg.brewer}
+      description={keg.description}
+      abv={keg.abv}
+      price={keg.price}
+      remaining={keg.remaining}
+      id={index}
+      onClickSellPints={props.onClickSellPints}
+      key={index}/>;
+  }
 
 
 }

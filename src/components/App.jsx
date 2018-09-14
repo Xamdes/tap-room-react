@@ -20,6 +20,7 @@ class App extends React.Component
       masterKegList: startingKegList
     };
     this.handleSellPints = this.handleSellPints.bind(this);
+    this.handleRestockKeg = this.handleRestockKeg.bind(this);
   }
   render(){
     return (
@@ -28,7 +29,11 @@ class App extends React.Component
           <HeadOne className="jumbotron">Welcome to The Tap</HeadOne>
           <Header/>
           <Switch>
-            <Route exact path='/' render={()=><Inventory kegList={this.state.masterKegList} onClickSellPints={this.handleSellPints}/>} />
+            <Route exact path='/' render={()=><Inventory
+              kegList={this.state.masterKegList} 
+              onClickSellPints={this.handleSellPints}
+              onClickSellPints={this.handleSellPints}
+            />} />
             <Route exact path='/keg' render={()=><KegDetail onClickSellPints={this.handleSellPints} />} />
             <Route component={Error404} />
           </Switch>
@@ -42,13 +47,22 @@ class App extends React.Component
 
   }
 
-  handleSellPints(id)
+  handleSellPints(id,amount=1)
   {
-    console.log('Hi my id id:' + id);
-    console.log(this);
     let newMasterKegList = this.state.masterKegList.slice();
     let newRemaining = parseInt(newMasterKegList[id].remaining);
-    newRemaining--;
+    newRemaining -= amount;
+    newMasterKegList[id].remaining = newRemaining.toString();
+    this.setState({
+      masterKegList: newMasterKegList
+    });
+  }
+
+  handleRestockKeg(id,amount=1)
+  {
+    let newMasterKegList = this.state.masterKegList.slice();
+    let newRemaining = parseInt(newMasterKegList[id].remaining);
+    newRemaining += amount;
     newMasterKegList[id].remaining = newRemaining.toString();
     this.setState({
       masterKegList: newMasterKegList
@@ -60,22 +74,22 @@ class App extends React.Component
 export default App;
 
 const Main = styled.div`
-background-color: #00665E;
-font-family: sans-serif;
-color: white;
-`;
+  background-color: #00665E;
+  font-family: sans-serif;
+  color: white;
+  `;
 
 const InnerMain = styled.div`
-background-color: black;
-font-family: sans-serif;
-padding-top: 50px;
-color: white;
-`;
+  background-color: black;
+  font-family: sans-serif;
+  padding-top: 50px;
+  color: white;
+  `;
 
 const HeadOne = styled.h1`
-color: navy;
-text-align: center;
-`;
+  color: navy;
+  text-align: center;
+  `;
 
 
 let startingKegList = [
