@@ -22,7 +22,7 @@ function Inventory(props){
 
   function checkForLowStock(keg,index)
   {
-    if(parseInt(keg.remaining) <= 10)
+    if(parseInt(keg.remaining) < 10)
     {
       return <KegWarning
         name={keg.name}
