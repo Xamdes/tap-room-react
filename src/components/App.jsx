@@ -11,21 +11,29 @@ import Inventory from './Inventory';
 import Error404 from './Error404';
 import KegDetail from './KegDetail';
 
-function App()
+class App extends React.Component
 {
-  return (
-    <Main>
-      <InnerMain className="container">
-        <HeadOne className="jumbotron">Welcome to The Tap</HeadOne>
-        <Header/>
-        <Switch>
-          <Route exact path='/' component={Inventory} />
-          <Route exact path='/keg' component={KegDetail} />
-          <Route component={Error404} />
-        </Switch>
-      </InnerMain>
-    </Main>
-  );
+  constructor(props) {
+    super(props);
+    this.state = {
+      masterKegList: startingKegList
+    };
+    render(){
+      return (
+        <Main>
+          <InnerMain className="container">
+            <HeadOne className="jumbotron">Welcome to The Tap</HeadOne>
+            <Header/>
+            <Switch>
+              <Route exact path='/' render={()=><Inventory kegList={this.state.masterKegList} />} />
+              <Route exact path='/keg' component={KegDetail} />
+              <Route component={Error404} />
+            </Switch>
+          </InnerMain>
+        </Main>
+      );
+    }
+
 }
 
 export default App;
@@ -49,7 +57,7 @@ text-align: center;
 `;
 
 
-let  masterKegList: [
+let startingKegList: [
   {
     name: 'Ruby Zozzle',
     brewer: 'Hi-Wheel',

@@ -24,6 +24,8 @@ module.exports = {
     extensions: ['.js', '.jsx']
   },
 
+  //eval-source-map for development
+  //source-map for production
   devtool: 'eval-source-map',
 
   devServer: {
@@ -35,7 +37,8 @@ module.exports = {
   plugins: [
     new webpack.ProvidePlugin({
       React: 'react',
-      ReactDOM: 'react-dom'
+      ReactDOM: 'react-dom',
+      PropTypes: 'prop-types'
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),

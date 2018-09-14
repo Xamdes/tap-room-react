@@ -1,4 +1,4 @@
-# tap-room-react
+# The Tap
 
 ## Author(s)
 

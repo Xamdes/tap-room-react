@@ -8,13 +8,12 @@ import styled from 'styled-components';
 import KegDetail from './KegDetail';
 // import { Link, Switch, Route } from 'react-router-dom';
 
-class Inventory extends React.Component{
+function Inventory(props){
   render() {
     return (
       <Main>
-        <Title clasName="container">Inventory</Title>
-        <p>{state.masterKegList[0].remaining}</p>
-        {state.masterKegList.map((keg, index) =>
+        <Title clasName="container">Keg Inventory</Title>
+        {props.kegList.map((keg, index) =>
           <KegDetail
             name={keg.name}
             brewer={keg.brewer}
