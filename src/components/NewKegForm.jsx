@@ -23,7 +23,7 @@ function NewKegForm(props)
       price: _price.value,
       remaining: _remaining.value,
       id: v4()
-    }
+    };
     props.onClickPushKeg(newKeg);
     _name.value = _brewer.value = _description.value = _abv.value = _price.value = _remaining.value = '';
   }
