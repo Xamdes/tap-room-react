@@ -33,26 +33,30 @@ function Inventory(props){
         remaining={keg.remaining}
         id={index}
         onClickSellPints={props.onClickSellPints}
+        onClickRestockKeg={props.onClickRestockKeg}
         key={index}/>;
     }
-    return <KegDetail
-      name={keg.name}
-      brewer={keg.brewer}
-      description={keg.description}
-      abv={keg.abv}
-      price={keg.price}
-      remaining={keg.remaining}
-      id={index}
-      onClickSellPints={props.onClickSellPints}
-      key={index}/>;
+    else
+    {
+      return <KegDetail
+        name={keg.name}
+        brewer={keg.brewer}
+        description={keg.description}
+        abv={keg.abv}
+        price={keg.price}
+        remaining={keg.remaining}
+        id={index}
+        onClickSellPints={props.onClickSellPints}
+        onClickRestockKeg={props.onClickRestockKeg}
+        key={index}/>;
+    }
   }
-
-
 }
 
 Inventory.propTypes = {
   kegList: PropTypes.array,
   onClickSellPints: PropTypes.func,
+  onClickRestockKeg: PropTypes.func,
 };
 
 export default Inventory;

@@ -30,9 +30,9 @@ class App extends React.Component
           <Header/>
           <Switch>
             <Route exact path='/' render={()=><Inventory
-              kegList={this.state.masterKegList} 
+              kegList={this.state.masterKegList}
               onClickSellPints={this.handleSellPints}
-              onClickSellPints={this.handleSellPints}
+              onClickRestockKeg={this.handleRestockKeg}
             />} />
             <Route exact path='/keg' render={()=><KegDetail onClickSellPints={this.handleSellPints} />} />
             <Route component={Error404} />

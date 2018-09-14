@@ -10,25 +10,38 @@ import styled from 'styled-components';
 function KegDetail(props){
 
   return (
-    <Main>
-      <Keg>
-        <Name>{props.name}
-          <ul>
-            <Details>Brewer: {props.brewer}</Details>
-            <Details>Desc: {props.description}</Details>
-            <Details>ABV: {props.abv}</Details>
-            <Details>Price: ${props.price}</Details>
-            <Details>In-Stock: {props.remaining} pints</Details>
-            <Button className="btn btn-dark btn-sm" onClick={handleClickSellPints}>Sell a Pint</Button>
-          </ul>
-        </Name>
+    <Main className="container">
+      <Keg className="card">
+        <Name className="card-header">{props.name}</Name>
+        <ul className="list-group list-group-flush">
+          <Details className="list-group-item">Brewer: {props.brewer}</Details>
+          <Details className="list-group-item">Desc: {props.description}</Details>
+          <Details className="list-group-item">ABV: {props.abv}</Details>
+          <Details className="list-group-item">Price: ${props.price}</Details>
+          <Details className="list-group-item">In-Stock: {props.remaining} pints</Details>
+        </ul>
+        <div className="card-footer">
+          <div className="row">
+            <div className="col-md-2">
+              <Button className="btn btn-dark btn-sm" onClick={handleClickSellPints}>Sell a Pint</Button>
+            </div>
+            <div className="col-md-2">
+              <Button className="btn btn-dark btn-sm" onClick={handleRestockKeg}>Restock Keg</Button>
+            </div>
+          </div>
+        </div>
       </Keg>
     </Main>
   );
 
   function handleClickSellPints()
   {
-    props.onClickSellPints(props.id);
+    props.onClickSellPints(props.id,1);
+  }
+
+  function handleRestockKeg()
+  {
+    props.onClickRestockKeg(props.id,1);
   }
 }
 
@@ -40,7 +53,8 @@ KegDetail.propTypes = {
   price: PropTypes.string,
   remaining: PropTypes.string,
   id: PropTypes.number,
-  onClickSellPints: PropTypes.func
+  onClickSellPints: PropTypes.func,
+  onClickRestockKeg: PropTypes.func,
 };
 
 export default KegDetail;
@@ -49,22 +63,19 @@ const Main = styled.div`
 
 `;
 
-const Keg = styled.ul`
+const Keg = styled.div`
 text-align: left;
-display: flex;
-flex-direction: column;
-justify-content: left;
-align-items: start;
 background-color: lightgrey;
 color: black;
 padding: 16px;
 padding-left: 32px;
 `;
 
-const Name = styled.li`
+const Name = styled.h5`
+test-align: center;
 `;
 
-let Details = styled.li`
+const Details = styled.li`
 `;
 
 const Button = styled.button`
