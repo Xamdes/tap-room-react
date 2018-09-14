@@ -8,35 +8,30 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 // import { Link, Switch, Route } from 'react-router-dom';
 
-class KegDetail extends React.Component{
-  constructor(props)
+function KegDetail(props){
+
+  return (
+    <Main>
+      <Keg>
+        <Name>{props.name}
+          <ul>
+            <Details>Brewer: {props.brewer}</Details>
+            <Details>Desc: {props.description}</Details>
+            <Details>ABV: {props.abv}</Details>
+            <Details>Price: ${props.price}</Details>
+            <Details>In-Stock: {props.remaining} pints</Details>
+            <Details>ID: {props.id} pints</Details>
+            <Button className="btn btn-dark btn-sm" onClick={handleClickSellPints}>Sell a Pint</Button>
+          </ul>
+        </Name>
+      </Keg>
+    </Main>
+  );
+
+  function handleClickSellPints()
   {
-    super(props);
-    this.state = props;
-    this.remaining = this.state.remaining;
+    props.onClickSellPints(props.id);
   }
-
-  render(){
-    return (
-      <Main>
-        <Keg>
-          <Name>{this.state.name}
-            <ul>
-              <Details>Brewer: {this.state.brewer}</Details>
-              <Details>Desc: {this.state.description}</Details>
-              <Details>ABV: {this.state.abv}</Details>
-              <Details>Price: ${this.state.price}</Details>
-              <Details>In-Stock: {this.state.remaining} pints</Details>
-              <Details>ID: {this.state.id} pints</Details>
-              <Button className="btn btn-dark btn-sm" onClick={() => this.sellPints()}>Sell a Pint</Button>
-            </ul>
-          </Name>
-        </Keg>
-      </Main>
-    );
-  }
-
-
 }
 
 KegDetail.propTypes = {
@@ -46,7 +41,8 @@ KegDetail.propTypes = {
   abv: PropTypes.string,
   price: PropTypes.string,
   remaining: PropTypes.string,
-  id: PropTypes.string
+  id: PropTypes.number,
+  onClickSellPints: PropTypes.func
 };
 
 export default KegDetail;

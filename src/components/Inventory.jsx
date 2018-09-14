@@ -22,6 +22,7 @@ function Inventory(props){
           price={keg.price}
           remaining={keg.remaining}
           id={index}
+          onClickSellPints={props.onClickSellPints}
           key={index}/>
       )}
     </Main>
@@ -31,7 +32,8 @@ function Inventory(props){
 }
 
 Inventory.propTypes = {
-kegList: PropTypes.array,
+  kegList: PropTypes.array,
+  onClickSellPints: PropTypes.func,
 };
 
 export default Inventory;
